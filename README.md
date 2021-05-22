@@ -1,2 +1,2 @@
-# Classic GAme JS
+# Classic Game JS
 Javascript game with global score. 
