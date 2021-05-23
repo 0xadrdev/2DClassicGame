@@ -24,7 +24,7 @@ var brickOffsetLeft = 40;
 var velocidad = 0;
 var score = 0;
 var pointsToWin = 0;
-var lives = 2;
+var lives = 1;
 var presh = 0;
 
 const velocitylevel = document.getElementById("velocitylevel");

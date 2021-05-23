@@ -24,6 +24,7 @@ async function getScore() {
 
   data.sort(compare);
   p.innerText = `Numero de jugadores: ${data.length-1}`;
+  console.log(data)
   console.log(data[0].date);
   for (var i = 1; i < data.length; i++) {
     var row = `<tr>
