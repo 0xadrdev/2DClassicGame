@@ -24,7 +24,7 @@ var brickOffsetLeft = 40;
 var velocidad = 0;
 var score = 0;
 var pointsToWin = 0;
-var lives = 1;
+var lives = 2;
 var presh = 0;
 
 const velocitylevel = document.getElementById("velocitylevel");
@@ -33,7 +33,7 @@ const btnFinish = document.getElementById('btnFinish');
 const modal = document.getElementById('ventanaModal');
 const btnModal = document.getElementById('btnModal')
 const inputUser = document.getElementById('inputUser');
-const alert = document.getElementById('alert');
+const alerthtml = document.getElementById('alert');
 
 
 
@@ -251,23 +251,29 @@ function playgame(){
         velocitylevel.innerText = `Nivel Velocidad ${velocidad}`;
 
       }
-    } else {
+    } else { 
       lives--;
- 
-
       velocidadbola = -7;
-      if (!lives) {
+      console.log('lives',lives);
+    
+      if (lives === 0) {
+        console.log("lives === 0")
         submit(user, score);
-        alert.innerText = `Le quedan ${lives} vidas`;
-        alert.classList.remove('d-none');
-        document.location.reload();
-      } else {
-        x = canvas.width / 2;
-        y = canvas.height - 30;
-        dx = 3;
-        dy = -3;
-        paddleX = (canvas.width - paddleWidth) / 2;
-      }
+        alert("GAME OVER, TE HAS QUEDADO SIN VIDAS");
+        document.location.reload()
+    } 
+    else {
+      alerthtml.classList.remove('d-none')
+      alerthtml.innerText = `Te quedan ${lives} vidas`;
+      setTimeout(()=>alerthtml.classList.add('d-none'),1000);
+      x = canvas.width / 2;
+      y = canvas.height - 30;
+      dx = 3;
+      dy = -3;
+      paddleX = (canvas.width - paddleWidth) / 2;
+    }
+
+   
     }
   }
   if (rightPressed && paddleX < canvas.width - paddleWidth) {
